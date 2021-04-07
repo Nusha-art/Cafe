@@ -1,0 +1,39 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block title %}Оформление заказа{% endblock %}
+{% block bk %} {% static "home/order.jpg" %} {% endblock bk %}
+{% block content %}
+    <h1 class="display-5" align="center"><font face="Lucida Calligraphy" style="text-shadow: #fff 1px 1px 0, #fff 2px 2px 0,
+                 #fff 3px 3px 0; height: 50%; color: #480607;"><br>Заказ<br><br></font></h1>
+ <div class="container" style="background:#E7C697;padding:3%; color: #522c00;font-family : Lucida Calligraphy;">
+<div class="row">
+
+    <div class="col-8">
+    <form action="." method="post">
+        <p style="font-size:13px">* - Поля, обязательные для заполнения</p>
+        <p>Имя* <br>{{ form.first_name }}</p>
+        <p>Фамилия* <br>{{ form.last_name }}</p>
+        <p>Почта* <br>{{ form.email }}</p>
+        <p>Телефон* <br>{{ form.phone }}</p>
+        <p>Адрес самовывоза* <br>{{ form.adress }}</p>
+        <p>ОПЛАТА ПРОИСХОДИТ ПРИ ВЫДАЧЕ ЗАКАЗА НА ВЫБРАННОМ ПУНКТЕ САМОВЫВОЗА</p>
+        <p><input type="submit" value="Оформить заказ" style="background:#FAEEDD;color:#522c00; border-radius: 10px; border-color:#522c00; text-decoration:none; padding:1%;"></p>
+        {% csrf_token %}
+    </form>
+    </div>
+    <div class="col-4">
+        <h3>Ваш заказ</h3>
+        <ul>
+            {% for item in cart %}
+                <li>
+                    {{ item.quantity }}x {{ item.product.name }}
+                    <span> на {{ item.total_price }} рублей</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <p>К оплате: {{ cart.get_total_price }} рублей</p>
+    </div>
+        </div>
+     </div>
+
+{% endblock %}

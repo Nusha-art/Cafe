@@ -1,0 +1,37 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block title %} Выпечка  {% endblock title %}
+
+{% block bk %} {% static "vipechka/vipech.jpg" %} {% endblock bk %}
+{% block content %}
+<h1 class="display-5" align="center"><font face="Lucida Calligraphy" style="text-shadow: #cad5e2 1px 1px 0, #cad5e2 2px 2px 0, 
+                 #cad5e2 3px 3px 0, #cad5e2 4px 4px 0; height: 50%; color: #522c00; "><br>Выпечка<br><br></h1></font>
+{% for product in Menu %}
+<div class="container-fluid"  style="text-align: center; margin-top: 2%;
+        font-family : Lucida Calligraphy;
+        font-size: 20px; background-color: #fa9e34; color: #522c00; opacity: .94;">
+  <div class="row">
+    <div class="col-sm" style="margin: 2%;">
+      <p>{{product.name}}</p>
+        <p>{{product.description}}</p>
+    </div>
+    <div class="col-sm" style="margin: 2%;">
+      <p>{{ product.cost }} руб./кусок</p>
+<form action="{% url "cart:cart_add" product.id %}" method="post">
+    {{ cart_product_form }}
+    {% csrf_token %}
+        <div class="row">
+                            <div class="col-sm">
+                                {{forms.quantity}}</div>
+                            <div class="col-sm">
+                                <input type="submit" value="Положить в корзину" style="background:#FFB841;color:#522c00; border-radius: 10px; border-color:#522c00"></div></div>
+</form>
+    </div>
+    <div class="col-sm" style="margin: 3%;">
+
+      <img style="border-radius: 20px;"src="{{product.image.url}}">
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}

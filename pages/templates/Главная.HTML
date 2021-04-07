@@ -1,0 +1,83 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block title %} Кафе "Анютина лавка"  {% endblock title %}
+
+{% block bk %} {% static "home/gl.jpg" %}  {% endblock bk %}
+{% block content %}
+<h1 class="display-5" align="center"><font face="Lucida Calligraphy" style="text-shadow: #000 1px 1px 0, #000 2px 2px 0, 
+                 #000 3px 3px 0, #000 4px 4px 0; height: 50%"><br>Кафе «Анютина Лавка»:<br> вы не останетесь <br>равнодушными<br><br></h1></font>
+<div class="container"  style="background-color: #202030;">
+  <div class="row">
+    <div class="col-sm">
+      
+    </div>
+    <div class="col-6" style="text-align: center;
+        font-family : Lucida Calligraphy;
+        font-size: 20px;">
+      <p><font size="6">Кто мы</p></font>
+      <p>Мы открыли кафе в 2021 году. Наша цель дарить тепло рукам и сердцам посетителей. Уют, созданный нашей командой, позволит посетителю отдохнуть от уличной беготни и городского шума, расслабиться и попробовать что то новое. Повара и баристы готовят блюда, десерты и напитки с душой. Мы стараемся для наших посетителей)))</p>
+    </div>
+    <div class="col-sm">
+      
+    </div>
+  </div>
+</div>
+<div class="container" style="background: #ffc47f; margin-top: 2%">
+  <div class="row">
+    <div class="col" style="text-align: center;
+        font-family : Lucida Calligraphy;
+        font-size: 20px;
+        color: #522c00;
+        margin-top: 10%">
+      <p><font align="center">Часы работы<br>
+ПН−СБ: 8:00−22:00<br>
+ВС: 8:00−19:00<br>
+Еда в ресторане и на вынос
+            </p></font>
+    </div>
+    <div class="col" style="margin: 2%">
+      <img src="{% static "home/barista.jpg" %}">
+    </div>
+  </div>
+</div>
+<div class="container" style="background: #202030; margin-top: 2%">
+  <div class="row">
+    <div class="col" style="margin: 2%">
+      <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static "home/slide/1.jpg" %}" class="d-block w-100">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "home/slide/2.jpg" %}" class="d-block w-100">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "home/slide/3.jpg" %}" class="d-block w-100">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "home/slide/4.jpg" %}" class="d-block w-100">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden"></span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden"></span>
+  </a>
+</div>
+    </div>
+    <div class="col" style="text-align: center;
+        font-family : Lucida Calligraphy;
+        font-size: 20px;
+        color: #fff;
+        margin-top: 15%">
+      <p><font align="center" size="6">Контакты</font></p>
+      <p> Адрес главной точки: 
+  ул. Арбат, 1а, Москва, 119019, Россия<br> annaoblet0709@gmail.com <br> +7 123 456-78-90</p>
+    </div>
+    
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block title %} Вакансии {% endblock title %}
+
+{% block bk %} {% static "vakansii/vacansii.jpg" %}  {% endblock bk %}
+{% block content %}
+<h1 class="display-5" align="center"><font face="Lucida Calligraphy" style="text-shadow: #000 1px 1px 0, #000 2px 2px 0; height: 50%; color:#BC987E"><br>Вакансии<br><br></h1></font>
+{% for row in Data %}
+  <div class="container"  style="text-align: center;
+        font-family : Lucida Calligraphy;
+        font-size: 20px; color: #522c00; margin-top:5%; margin-bottom:5% ">
+  <div class="row">
+    {% for person in row %}
+    <div class="col-sm">
+      <div class="card" style="background: #FFDAB9">
+        {% if person.image %}
+        <img src="{{ person.image.url }}" class="card-img-top">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ person.name }}</h5>
+          <p class="card-text">{{ person.description }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,73 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block title %} События  {% endblock title %}
+
+{% block bk %} {% static "sobitiya/sobit.jpg" %}  {% endblock bk %}
+{% block content %}
+<h1 class="display-5" align="center"><font face="Lucida Calligraphy" style="text-shadow: #000 1px 1px 0, #000 2px 2px 0; height: 50% color:#FFC8A8"><br>События<br><br></h1></font>
+<div class="container"  style="text-align: center;
+        font-family : Lucida Calligraphy;
+        font-size: 20px; color: #522c00">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card" style="background: #FFDAB9">
+  <img src="{% static "sobitiya/m-k.jpg" %}" class="card-img-top" alt="Примеры рисунков на мастер-классе">
+  <div class="card-body">
+    <h5 class="card-title">Мастер-класс по рисунку на пенке</h5>
+    <p class="card-text">Бесплатно обучаем рисованию на пенке кофе. Будем рады, как и тем, кто хочет попробовать рисовать на пенке, так и наблюдателям)</p>
+    <a href="{% url "pages:m_k" %}" class="btn btn-dark" style="background: #654321">Подробнее...</a>
+  </div>
+</div>
+    </div>
+    <div class="col-sm" >
+      <div class="card" style="background: #FFDAB9">
+  <img src="{% static "sobitiya/dr-k.jpg" %}" class="card-img-top" alt="День рождения кафе">
+  <div class="card-body">
+    <h5 class="card-title">День рождения кафе</h5>
+    <p class="card-text">Нам уже год! Мы благодарим наших посетителей</p>
+    <a href="{% url "pages:d_r_cafe" %}" class="btn btn-dark" style="background: #654321">Подробнее</a>
+  </div>
+</div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container"  style="text-align: center;
+        font-family : Lucida Calligraphy;
+        font-size: 20px; color: #522c00; margin-top:5%; margin-bottom:5% ">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card" style="background: #FFDAB9">
+  <img src="{% static "sobitiya/d-k.jpg" %}" class="card-img-top" alt="Магия кофе">
+  <div class="card-body">
+    <h5 class="card-title">День кофе</h5>
+    <p class="card-text">Наши мастера для Вас делают магию кофе.</p>
+    <a href="{% url "pages:d_coffee" %}" %}" class="btn btn-dark" style="background: #654321">Подробнее...</a>
+  </div>
+</div>
+    </div>
+    <div class="col-sm" >
+      <div class="card" style="background: #FFDAB9">
+  <img src="{% static "sobitiya/d-a.jpg" %}" class="card-img-top" alt="Эклеры">
+  <div class="card-body">
+    <h5 class="card-title">День эклера</h5>
+    <p class="card-text">Эксперементируем с рецептами эклеров, их наполнением и украшениями</p>
+    <a href="{% url "pages:d_eclair" %}" class="btn btn-dark" style="background: #654321">Подробнее...</a>
+  </div>
+</div>
+    </div>
+    <div class="col-sm">
+      <div class="card" style="background: #FFDAB9" >
+  <img src="{% static "sobitiya/d-v.jpg" %}" class="card-img-top" alt="Пекари">
+  <div class="card-body">
+    <h5 class="card-title">День выпечки</h5>
+    <p class="card-text">Наши пекари устраивают день выпечки, чтобы выяснить, что добавить в меню.</p>
+    <a href="{% url "pages:d_vipech" %}" class="btn btn-dark" style="background: #654321">Подробнее...</a>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

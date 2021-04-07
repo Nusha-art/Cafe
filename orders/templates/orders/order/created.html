@@ -1,0 +1,20 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block title %}Спасибо!{% endblock %}
+{% block bk %} {% static "home/order.jpg" %} {% endblock bk %}
+{% block content %}
+<br>
+<br>
+<div class="container" style="background:#E7C697;padding:3%; color: #522c00;font-family : Lucida Calligraphy;">
+<div class="row">
+
+    <div class="col-8">
+    <h1>Спасибо за заказ!</h1>
+    <p>Ваш заказ принят. Номер заказа
+        <strong>{{ order.id }}</strong>. Мы вам сообщим, когда заказ будет готов!</p>
+        <p>Ваш пункт самовывоза {{ order.adress }}</p>
+<a style="background:#FAEEDD;color:#522c00; border-radius: 10px; border-color:#522c00; text-decoration:none; padding:1%;" href="{% url "pages:index" %}">На главную</a>
+    </div>
+</div>
+</div>
+{% endblock %}

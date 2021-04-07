@@ -1,0 +1,71 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block title %}
+    Корзина
+{% endblock %}
+{% block bk %} {% static "home/glav.jpg" %} {% endblock bk %}
+{% block content %}
+    <h1 class="display-5" align="center"><font face="Lucida Calligraphy" style="text-shadow: #000 1px 1px 0, #000 2px 2px 0,
+                 #000 3px 3px 0; height: 50%; color: #CD9575; "><br>Корзина<br><br></h1></font>
+        <section>
+            <div class="container" style="background:#E7C697;padding:3%">
+                <h3 style="color: #522c00;font-family : Lucida Calligraphy;">Ваша корзина:</h3><hr style="color:#522c00; height:3px"><hr style="color:#522c00;height:3px">
+                <div>
+
+                    <div class="container-fluid"  style="text-align: center; margin-top: 2%;
+        font-family : Lucida Calligraphy;
+        font-size: 20px;  color: #522c00; opacity: .94;">
+                        {% for item in cart %}
+        {% with product=item.product  %}
+  <div class="row" >
+    <div class="col-sm" style="margin: 2%;">
+
+            <h3>{{product.name}}</h3>
+        <h5>Цена одного товара: <span>{{item.cost}}</span> рублей</h5>
+            </div>
+                <div class="col-sm" style="margin: 2%;">
+
+                    <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                    {% csrf_token %}
+                    <label for="">Количество: {{item.quantity}}</label>
+                        <div class="row">
+                            <div class="col-sm">
+                                {{ item.update_quantity_form.quantity }}
+                    {{ item.update_quantity_form.update }}
+                            </div>
+                            <div class="col-sm"><input style="background:#FAEEDD;color:#522c00; border-radius: 10px; border-color:#522c00; text-decoration:none; padding:1%;" type="submit" value="Изменить"></div>
+                    </div>
+                    </form>
+
+                </div>
+                <div class="col-sm" style="margin: 3%;">
+                <img style="border-radius: 20px; width:240px;" src="{% if product.image %} {{ product.image.url }} {% endif %}" alt="">
+                </div>
+                    <div class="col-sm" style="margin: 3%;">
+                    <h4>Общая цена: <span>{{item.total_price}}</span></h4>
+                <div>
+                    <a style="background:#FAEEDD;color:#522c00; border-radius: 10px; border-color:#522c00; text-decoration:none; padding:1%;" href="{% url "cart:cart_remove" product.id %}">Удалить</a>
+                </div>
+
+            </div>
+
+        </div><hr>
+        {% endwith %}
+        {% endfor %}
+    </div>
+                </div>
+                <div class="row">
+                <div class="col-sm">
+                    <h2 style="color: #522c00;font-family : Lucida Calligraphy;">Суммарная стоимость: <span>{{ cart.get_total_price }}</span> рублей</h2>
+                </div>
+                    <div class="col-sm" align="right" >
+                    <a href="{% url "orders:order_create" %}" class="button" style="background:#FAEEDD;color:#522c00; border-radius: 10px; border-color:#522c00; text-decoration:none; padding:1%;">Оформить заказ</a>
+                    </div>
+                <div class="col-sm" align="right" >
+                    <a style="background:#FAEEDD;color:#522c00; border-radius: 10px; border-color:#522c00; text-decoration:none; padding:1%;" href="{% url "pages:index" %}">Продолжить покупки</a>
+                </div>
+                    </div>
+            </div>
+        </section>
+
+{% endblock %}
